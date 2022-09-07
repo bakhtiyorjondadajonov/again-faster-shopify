@@ -1,0 +1,139 @@
+@import "./variables.css";
+@import "./base.css.liquid";
+@import "./typography.css";
+@import url("{{home.css.liquid | asset_url | stylesheet_tag}}");
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;0,800;1,300;1,400;1,500;1,600;1,700;1,800&family=Oswald:wght@200;300;400;500;600;700&display=swap');
+
+:root{
+    --main-font:'Open Sans', sans-serif;
+    --secondary-font:'Oswald', sans-serif;
+    --color-primary:#000000;
+    --color-primary--light:#ffffff;
+    --color-primary--medium:#C2A578;
+    --color-grey--text:#767676;
+    --color-grey:#C4C4C4;
+    --color-grey--light:#F8F8F8;
+    --color-success:#6FCF97;
+    --color-error:#DA0000;
+}
+*,*:before,*:after{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+html{
+    font-family: var(--main-font);
+}
+
+/* ----------------- ADVERTISEMENT PART -------------------- */
+.advertisement{
+    font-family: var(--secondary-font);
+   font-size: 12px;
+   font-weight: 300;
+   line-height: 20px;
+   letter-spacing: 0.16em;
+   text-align: center;
+   color: var(--color-primary);
+   padding:1rem;
+  
+   }
+/* ---------------- Header home ------------ */
+.header--home{
+    height: 100vh;
+    width: 100%;
+    background-image: url("{{"AF_Hero-full.jpg" | asset_url}}");
+    background-position:center;
+    background-size:contain;
+    padding:4rem;
+    padding-top:0;
+    display:flex;
+    flex-direction:column;
+    justify-content:space-between;
+}
+
+   /* ------------------- NAVIGATION -------------------- */
+   .navigation{
+    display: flex;
+    justify-content: space-between;
+    padding: 1.7rem 0;
+   }
+   .logo-box{
+    height: 20px;
+   }
+   .list{
+    display: flex !important;
+   }
+   .list--main-menu{
+    list-style: none;
+    display: flex !important;
+font-family:var(--main-font);
+font-size: 12px;
+font-weight: 400;
+line-height: 17px;
+letter-spacing: 0.175em;
+text-align: left;
+text-transform: uppercase;
+gap: 4rem;
+}
+.list--search{
+   gap: 2.1rem; 
+}
+.item--main-menu>*{
+       color: var(--color-primary--light);
+text-decoration: none;
+   }
+   /* ------------------ HEADER CONTENT----- */
+   .header__content{
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+   }
+    .title{
+
+    }
+    .title--header{
+   text-transform: uppercase;     
+font-family:var(--main-font);
+font-size: 60px;
+font-weight: 700;
+line-height: 78px;
+letter-spacing: 0.24em;
+text-align: left;
+color: var(--color-primary--light);
+    }
+    .paragaraph{
+        
+    }
+    .paragaraph--header{
+        font-family:var(--main-font);
+        font-size: 14px;
+        font-weight: 400;
+        line-height: 23px;
+        letter-spacing: 0em;
+        text-align: left;
+       color: var(--color-primary--light); 
+       width: 40%;  
+    }
+    .cta{
+
+    }
+    .cta--header{
+        width: max-content;
+    border: solid 1px white;
+font-family:var(--main-font);
+font-size: 12px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0.175em;
+text-align: left;
+text-transform: uppercase;
+color: var(--color-primary--light);
+        display: flex;
+        align-items: center;
+        gap:10rem ;
+        padding: 1.5rem;
+    }
+    a{
+        text-decoration: none;
+    }

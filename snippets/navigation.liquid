@@ -1,0 +1,27 @@
+<nav class="navigation">
+  <div class="logo-box">
+    <img src="{{ "logo-primary.png" | asset_url }}" alt="logo">
+  </div>
+  <ul class="list list--main-menu">
+    {% for link in linklists.main-menu.links -%}
+    <li class="item item--main-menu">{{ link.title | link_to: link.url }}</li>
+    {%- endfor %}
+  </ul>
+  <ul class="list list--search">
+    <li class="item item--search">
+      <icon-search
+        ><img src="{{ "search-icon.png" | asset_url }}" alt=""></icon-search
+      >
+    </li>
+    <li class="item item--search">
+      <icon-search
+        ><img src="{{ "account-icon.png" | asset_url }}" alt=""></icon-search
+      >
+    </li>
+    <li class="item item--search">
+      <icon-search
+        ><img src="{{ "bag-icon.png" | asset_url }}" alt=""></icon-search
+      >
+    </li>
+  </ul>
+</nav>
