@@ -1,0 +1,23 @@
+{{'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css' | url | stylesheet_tag }}
+{{'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js' | url | script_tag }}
+{{"script.carousel.js" | asset_url | script_tag }}
+
+{{ "style.home_collection.css" | asset_url | stylesheet_tag }}
+<section class="collection collection--home">
+    <div class="swiper swiper--home-collection">
+        <div class="swiper-wrapper swiper-wrapper--home-collection">
+          {% for collection in collections %}
+  <!-- {{- collection.title | link_to: collection.url }} -->
+  <div class="swiper-slide">
+    <div class="collection-card">
+      <div class="collection-card__img-box">
+        <img src="{{collection.image.src | img_url:"1920x"}}" alt="">
+      </div>
+      <div class="collection-card__title"><span>{{collection.title}}</span><span class="arrow"><img src="{{"arrow-long-black.png" | asset_url}}" alt=""></span></div>
+    </div>
+  </div>
+
+{% endfor %}
+        </div>
+        <div class="swiper-scrollbar"></div>
+</section>

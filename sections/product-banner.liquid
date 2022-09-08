@@ -1,0 +1,20 @@
+{{"style.product-banner.css" | asset_url | stylesheet_tag}}
+<section class="product-banner">
+    <div class="product-banner__main-img">
+<img src="{{"banner-img-main.jpg" | asset_url}}" alt="">
+    </div>
+    <div class="product-banner__sub-img">
+        <img src="{{"banner-img-small.jpg" | asset_url}}" alt="">  
+    </div>
+    <div class="product-banner__content">
+        <div class="content__label">Best seller</div>
+        <h3 class="title title--product-banner">TRULY, AN ALL IN ONE BARBELL</h3>
+        <div class="content__description">Design that matches the performance and quality of other elite level competition bars</div>
+        <a href="#" class="cta cta--product-banner">Shop weights</a>
+    </div>
+</section>
+{% schema %}
+{
+    "name":"Product banner"
+}
+{% endschema %}

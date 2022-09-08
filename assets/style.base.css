@@ -7,3 +7,12 @@ html{
     font-family: var(--main-font);
     font-size: 62.5%;
 }
+a{
+    text-decoration: none;
+    color: inherit;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
