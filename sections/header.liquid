@@ -1,0 +1,43 @@
+{{ "style.home.css" | asset_url | stylesheet_tag }}
+<header class="header header--home">
+  {% render 'navigation'%}
+  <div class="header__content">
+    <h1 class="title title--header">
+      {{section.settings.header_title}}
+    </h1>
+    <p class="paragraph paragaraph--header">{{section.settings.header_description}}</p>
+    <a href="#" class="cta cta--header"
+      ><span>{{section.settings.header_cta}}</span><span><img src="{{ "arrow-long.png" | asset_url }}" alt="" /></span></a>
+  </div>
+</header>
+<style>
+  .header--home{
+  background-image: url("{{section.settings.header_image.src | img_url:'1920x'}}")
+  }
+</style>
+{% schema %}
+{
+  "name":"Header Customization",
+  "settings":[
+  {
+    "type":"text",
+    "label":"Your title for header",
+    "id":"header_title"
+  },
+  {
+    "type":"richtext",
+    "label":"Your description for header",
+    "id":"header_description"
+  }, {
+    "type":"image_picker",
+    "label":"Bacground image for header",
+    "id":"header_image"
+  },{
+    "type":"text",
+    "label":"Text for Button",
+    "id":"header_cta"
+  }
+  ]
+
+}
+{% endschema %}

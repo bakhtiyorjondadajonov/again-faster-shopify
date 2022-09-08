@@ -1,14 +1,15 @@
 <html>
   <head>
     {{
-      "style.css" | asset_url | stylesheet_tag
-    }}
-    {{
       content_for_header
     }}
   </head>
   <body>
-    {% render 'advertisement'%} {% render 'header' %}
+    {{ "style.variables.css" | asset_url | stylesheet_tag }}
+    {{ "style.base.css" | asset_url | stylesheet_tag }}
+    {{ "style.typography.css" | asset_url | stylesheet_tag }}
+    {% section "advertisement" %}
+    {% section "header" %}
     {{ content_for_layout }}
   </body>
 </html>
