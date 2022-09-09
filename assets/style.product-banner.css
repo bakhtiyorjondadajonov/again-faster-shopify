@@ -1,9 +1,10 @@
 .product-banner{
+    padding-top: 12rem;
 display: grid !important;
 grid-template-columns:60vw 40vw ;
 grid-template-rows: repeat(2,1fr);
-
-height: 100vh;
+height: 150vh;
+overflow: hidden;
 }
 .product-banner__main-img{
 grid-column: 1/2;

@@ -1,20 +1,55 @@
 {{"style.product-banner.css" | asset_url | stylesheet_tag}}
 <section class="product-banner">
     <div class="product-banner__main-img">
-<img src="{{"banner-img-main.jpg" | asset_url}}" alt="">
+<img src="{{section.settings.main_image.src | img_url:"1920x"}}" alt="">
     </div>
     <div class="product-banner__sub-img">
-        <img src="{{"banner-img-small.jpg" | asset_url}}" alt="">  
+        <img src="{{section.settings.sub_image.src | img_url: 'master'}}" alt="">  
     </div>
     <div class="product-banner__content">
-        <div class="content__label">Best seller</div>
-        <h3 class="title title--product-banner">TRULY, AN ALL IN ONE BARBELL</h3>
-        <div class="content__description">Design that matches the performance and quality of other elite level competition bars</div>
-        <a href="#" class="cta cta--product-banner">Shop weights</a>
+        <div class="content__label">{{section.settings.label}}</div>
+        <h3 class="title title--product-banner">{{section.settings.title}}</h3>
+        <div class="content__description">{{section.settings.description}}</div>
+        <a href="{{section.settings.button_link}}" class="cta cta--product-banner">{{section.settings.button_text}}</a>
     </div>
 </section>
 {% schema %}
 {
-    "name":"Product banner"
+    "name":"Banner Customization",
+    "settings":[
+    {
+    "type":"text",
+    "label":"Product Label",
+    "id":"label"
+    },{
+        "type":"text",
+        "label":"Product Banner Title",
+        "id":"title"
+    },
+    {
+        "type":"text",
+        "label":"Product Banner Description",
+        "id":"description"
+    },{
+        "type":"image_picker",
+        "label":"Main Image",
+        "id":"main_image"
+    },
+    {
+        "type":"image_picker",
+        "label":"Sub Image",
+        "id":"sub_image"
+    },
+    {
+        "type":"text",
+        "label":"button text",
+        "id":"button_text"
+    },
+    {
+        "type":"text",
+        "label":"button link",
+        "id":"button_link"
+    }
+    ]
 }
 {% endschema %}

@@ -1,0 +1,47 @@
+{{"style.banner-secondary.css" | asset_url | stylesheet_tag}}
+<section class="banner-secondary">
+  <div class="banner-secondary__content">
+    <h2 class="title title--banner-secondary">
+        {{section.settings.title}}
+    </h2>
+    <div class="banner-secondary__description">
+        {{section.settings.description}}
+    </div>
+    <a href="{{section.settings.button_link}}" class="cta cta--primary cta--banner-secondary"><span>{{section.settings.button_text}}</span><span><img src="{{ "arrow-long.png" | asset_url }}" alt="" /></span></a>
+  </div> 
+  <div class="banner-secondary__img">
+    <img src="{{section.settings.banner_image.src | img_url: 'master'}}" alt="">
+  </div> 
+</section>
+{% schema %}
+{
+    "name":"Banner 2nd Customization",
+    "settings":[
+  {
+        "type":"text",
+        "label":"Banner Title",
+        "id":"title"
+    },
+    {
+        "type":"text",
+        "label":"Banner Description",
+        "id":"description"
+    },{
+        "type":"image_picker",
+        "label":"Banner Image",
+        "id":"banner_image"
+    },
+  
+    {
+        "type":"text",
+        "label":"button text",
+        "id":"button_text"
+    },
+    {
+        "type":"text",
+        "label":"button link",
+        "id":"button_link"
+    }
+    ]
+}
+{% endschema %}
