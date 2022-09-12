@@ -1,0 +1,43 @@
+{{"style.banner-secondary.css" | asset_url | stylesheet_tag}}
+{{"style.arrivals.css" | asset_url | stylesheet_tag}}
+<section class=" arrivals">
+  <div class="arrivals__content">
+    <h2 class="title title--arrivals">
+        {{section.settings.title}}
+    </h2>
+    <a href="#" class="cta cta--primary"> <span>{{section.settings.button_text}}</span><span><img src="{{ "arrow-long.png" | asset_url }}" alt="" /></span></a>
+  </div>
+  <div class="arrivals__img"><img src="{{section.settings.banner_image.src | img_url: 'master'}}" alt=""></div>
+</section>
+{% schema %}
+{
+    "name":"Arrivals Customization",
+    "settings":[
+  {
+        "type":"text",
+        "label":"Banner Title",
+        "id":"title"
+    },
+    {
+        "type":"text",
+        "label":"Banner Description",
+        "id":"description"
+    },{
+        "type":"image_picker",
+        "label":"Banner Image",
+        "id":"banner_image"
+    },
+  
+    {
+        "type":"text",
+        "label":"button text",
+        "id":"button_text"
+    },
+    {
+        "type":"url",
+        "label":"button link",
+        "id":"button_link"
+    }
+    ]
+}
+{% endschema %}

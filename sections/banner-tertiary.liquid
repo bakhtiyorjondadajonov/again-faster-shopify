@@ -1,0 +1,47 @@
+{{"style.banner-tertiary.css" | asset_url | stylesheet_tag }}
+<section class="banner-tertiary">
+    {% for block in section.blocks %}
+    <div class="product-card">
+        <div class="product-card__img">
+            <img src="{{block.settings.product_image.src | img_url: 'master'}}" alt="">
+        </div>
+        <div class="product-card__title">{{block.settings.title}}</div>
+        <a href="{{block.settings.button_link}}" class="cta cta--product-banner">{{block.settings.button_content}}</a>
+    </div>
+{% endfor %}
+   
+</section>
+{% schema %}
+{
+    "name":"Banner Tertiary",
+    "blocks":[
+    {
+        "name":"Product Card",
+        "type":"slide",
+        "settings":[
+        {
+            "type":"text",
+            "label":"Product Title",
+            "id":"title"
+
+        },
+        {
+            "type":"image_picker",
+            "label":"Product Image",
+            "id":"product_image"
+        },
+        {
+            "type":"text",
+            "label":"Button Content",
+            "id":"button_content"
+        },
+        {
+            "type":"url",
+            "label":"Button link",
+            "id":"button_link"
+        }
+        ]
+    }
+    ]
+}
+{% endschema %}

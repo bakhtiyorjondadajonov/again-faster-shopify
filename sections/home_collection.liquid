@@ -6,14 +6,14 @@
 <section class="collection collection--home">
     <div class="swiper swiper--home-collection">
         <div class="swiper-wrapper swiper-wrapper--home-collection">
-          {% for collection in collections %}
+          {% for collection in section.settings.featured_collections%}
   <!-- {{- collection.title | link_to: collection.url }} -->
   <div class="swiper-slide">
     <div class="collection-card">
       <div class="collection-card__img-box">
         <img src="{{collection.image.src | img_url:"1920x"}}" alt="">
       </div>
-      <div class="collection-card__title"><span>{{collection.title}}</span><span class="arrow"><img src="{{"arrow-long-black.png" | asset_url}}" alt=""></span></div>
+      <a href="{{collection.link}}" class="collection-card__title"><span>{{collection.title}}</span><span class="arrow"><img src="{{"arrow-long-black.png" | asset_url}}" alt=""></span></a>
     </div>
   </div>
 
@@ -21,3 +21,15 @@
         </div>
         <div class="swiper-scrollbar"></div>
 </section>
+{% schema %}
+{
+  "name":"Featured Collection",
+  "settings":[
+  {
+    "type":"collection_list",
+    "id":"featured_collections",
+    "label":"collections"
+  }
+  ]
+}
+{% endschema %}

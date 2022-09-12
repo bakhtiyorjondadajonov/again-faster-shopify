@@ -57,10 +57,7 @@ width: 100%;
     transition: all 0.5s;
     
   }
-  .arrow{
-    width: 16px; 
-    opacity: 0;
-  }
+  
   .collection-card__title:hover .arrow{
     opacity: 1;
   }

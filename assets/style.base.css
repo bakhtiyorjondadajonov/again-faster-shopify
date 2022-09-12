@@ -33,6 +33,10 @@ color: var(--color-primary--light);
         padding: 1.5rem;
 }
 .cta--primary span img {
-    width: 16px;
+    width: 16px !important;
     height: min-content;
 }
+.arrow{
+    width: 16px; 
+    opacity: 0;
+  }
