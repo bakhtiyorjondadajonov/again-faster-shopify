@@ -1,1 +1,57 @@
-{{"style.footer.liquid" | asset_url | stylesheet_tag }}
+{{"style.footer.css" | asset_url | stylesheet_tag }}
+<footer class="footer">
+<div class="footer__contact">
+contact part    
+</div>
+<div class="footer__navigation">
+    {% for block in section.blocks %}
+        {% if block.type=="link_list" %}
+       <ul class="list list--footer__nav">
+        <h5 class="title title--footer__nav">{{block.settings.nav_title}}</h5>
+        {% assign footer_linklist = block.settings.menu %}
+
+        {% for link in linklists[footer_linklist].links %}
+        <li class="item item--footer__nav">
+    <a href="{{link.url}}">{{link.title}}</a>
+        </li>
+{% endfor %}
+       </ul>  
+        {% endif %}
+    {% endfor %}
+</div>
+<div class="footer__copyright">©2020 Again Faster. All Rights Reserved</div>
+
+</footer>
+
+
+
+
+
+
+
+
+
+{% schema %}
+{
+    "name":"Footer",
+    "blocks":[
+    {
+        "name":"Navigation List",
+        "type":"link_list",
+        "settings":[
+        {
+            "type":"text",
+            "id":"nav_title",
+            "label":"nav title"
+        },
+        {
+            "type":"link_list",
+            "id":"menu",
+            "label":"Menu"
+
+        }
+        ]
+    }
+    ]
+}
+{% endschema %}
