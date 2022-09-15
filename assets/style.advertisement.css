@@ -1,0 +1,12 @@
+/* ----------------- ADVERTISEMENT PART -------------------- */
+.advertisement{
+    font-family: var(--secondary-font);
+   font-size: 12px;
+   font-weight: 300;
+   line-height: 20px;
+   letter-spacing: 0.16em;
+   text-align: center;
+   color: var(--color-primary);
+   padding:1rem;
+  
+   }

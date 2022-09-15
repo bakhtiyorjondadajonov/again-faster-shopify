@@ -1,7 +1,14 @@
 {{"style.footer.css" | asset_url | stylesheet_tag }}
 <footer class="footer">
 <div class="footer__contact">
-contact part    
+<div class="newslatter">Newslatter</div> 
+<form action="#" class="contact-form">
+   <input class="contact-form__input" placeholder="Enter your email" type="email">
+   <button class="btn btn--contact-form"><img src="{{"arrow-long-black.png" | asset_url }}" alt=""></button>
+</form> 
+<ul class="list list--socials">
+    <li class="item item--socials"></li>
+</ul>
 </div>
 <div class="footer__navigation">
     {% for block in section.blocks %}
@@ -22,7 +29,6 @@ contact part
 <div class="footer__copyright">©2020 Again Faster. All Rights Reserved</div>
 
 </footer>
-
 
 
 

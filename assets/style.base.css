@@ -40,3 +40,6 @@ color: var(--color-primary--light);
     width: 16px; 
     opacity: 0;
   }
+  .list{
+    list-style: none;
+  }
