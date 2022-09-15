@@ -1,0 +1,60 @@
+.header{
+display: grid;
+grid-template-columns: 45vw 50vw;
+gap: 2rem;
+width: 100vw;
+justify-content: center;
+height: 95vh;
+}
+.header__content{
+grid-column: 1/2;
+gap: 1rem;
+align-self: center;
+
+
+}
+.eyebrow{
+    font-family: var(--secondary-font);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.16em;
+    text-align: left;
+    text-transform: uppercase;
+    
+}
+.title--header{
+    font-family: var(--main-font);
+    font-size: 40px;
+    font-weight: 700;
+    line-height: 62px;
+    letter-spacing: 0.175em;
+    text-align: left; 
+    text-transform: uppercase;
+    margin-top: 1.6rem;
+    margin-bottom: 4rem;
+}
+.header__banner{
+    grid-column: 2/3;
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    grid-template-rows: repeat(10, 1fr);
+    height: inherit;
+}
+.banner-main{
+grid-column: 1/4;
+grid-row: 1/10;
+height: 100%;
+}
+.banner-secondary{
+    height: 100%;
+    grid-column: 3/5;
+    grid-row: 7/11;
+}
+/* -------- COLLECTIONS PART ---------- */
+.collections{
+    display: grid;
+    grid-template-columns: repeat(auto-fill,minmax(22%,1fr));
+
+
+}

@@ -6,15 +6,13 @@
 <section class="collection collection--home">
     <div class="swiper swiper--home-collection">
         <div class="swiper-wrapper swiper-wrapper--home-collection">
+          
           {% for collection in section.settings.featured_collections%}
+          {%assign collection_data = collection%}
+
   <!-- {{- collection.title | link_to: collection.url }} -->
   <div class="swiper-slide">
-    <div class="collection-card">
-      <div class="collection-card__img-box">
-        <img src="{{collection.image.src | img_url:"1920x"}}" alt="">
-      </div>
-      <a href="{{collection.link}}" class="collection-card__title"><span>{{collection.title}}</span><span class="arrow"><img src="{{"arrow-long-black.png" | asset_url}}" alt=""></span></a>
-    </div>
+    {% include 'collection-card' with collection_data %}
   </div>
 
 {% endfor %}

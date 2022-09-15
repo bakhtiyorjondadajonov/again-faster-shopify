@@ -1,5 +1,5 @@
 {{"style.master.collection.css" | asset_url | stylesheet_tag}}
-<header class="">
+<header class="header">
     <div class="header__content">
 <div class="eyebrow">
     {{collection.metafields.accentuate.eye_brow}}
@@ -7,11 +7,21 @@
 <h1 class="title title--header">
 {{collection.metafields.accentuate.title}}
 </h1>
-<a href="{{collection.metafields.accentuate.cta_url | url}}" class="cta cta--primary"><span>{{collection.metafields.accentuate.cta_label}}</span><span><img src="{{"arrow-long-black.png"}}" alt=""></span></a>
-
+<a href="{{collection.metafields.accentuate.cta_url | url}}" class="cta cta--black cta--primary"><span>{{collection.metafields.accentuate.cta_label}}</span><span><img src="{{"arrow-long-black.png" | asset_url }}" alt=""></span></a>
     </div>
     <div class="header__banner">
-<div class="banner-main"><img src="{{collection.metafields.accentuate.image_1.src | img_url: 'master'}}" alt=""></div>
-<div class="banner-secondary"><img src="{{collection.metafields.accentuate.image_2.src | img_url: 'master'}}" alt=""></div>
+        {% for item in collection.metafields.accentuate.image_1 %}
+        <div class="banner-main"><img src="{{item.src}}" loading="lazy" alt=""></div>
+        {% endfor %}
+        {% for item in collection.metafields.accentuate.image_2 %}
+        <div class="banner-secondary"><img src="{{item.src}}" loading="lazy" alt=""></div>
+        {% endfor %}
     </div>
 </header>
+<main class="collections">
+ {% assign selected_handles = collection.metafields.accentuate.list_of_collections | split: '|' %}
+ {% for collection in selected_handles %}
+ {% assign collection_data = collections[collection] %}
+ {% include 'collection-card' with collection_data %}
+ {% endfor %}
+</main>

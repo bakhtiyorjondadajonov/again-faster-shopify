@@ -36,6 +36,10 @@ color: var(--color-primary--light);
     width: 16px !important;
     height: min-content;
 }
+.cta--black{
+    color:black !important;
+    border-color: inherit !important;
+}
 .arrow{
     width: 16px; 
     opacity: 0;
