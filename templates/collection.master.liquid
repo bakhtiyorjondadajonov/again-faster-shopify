@@ -19,9 +19,11 @@
     </div>
 </header>
 <main class="collections">
- {% assign selected_handles = collection.metafields.accentuate.list_of_collections | split: '|' %}
- {% for collection in selected_handles %}
- {% assign collection_data = collections[collection] %}
+    <!-- {{collection.metafields.accentuate.master_collections_list | split: "|"}} -->
+ {% assign selected_handles = collection.metafields.accentuate.master_collections_list | split: '|' %}
+ {% for my_collection in selected_handles %}
+ {% assign collection_data = collections[my_collection] %}
  {% include 'collection-card' with collection_data %}
  {% endfor %}
 </main>
+ <!-- {{collection.metafields.accentuate.master_collections_list | split:"|"}} -->

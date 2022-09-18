@@ -1,0 +1,55 @@
+<style>
+    .tag-container{
+        display: flex;
+        gap: 0.8rem;
+        flex-wrap: wrap;
+        position: absolute;
+        margin: 0.8rem;
+    }
+    .tag{
+      
+        padding: 0.4rem 1.6rem;
+font-family: var(--main-font);
+font-size: 12px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: center;
+top: 0;
+
+    }
+    .best-seller{
+        color: white;
+        background-color: black;
+    }
+    .sale{
+        color: white;
+        background-color: #9E0404;
+    }
+    .free-shipping{
+        color: black;
+        background-color: white;
+    }
+</style>
+<!-- {{current_product.tags}} -->
+<div class="tag-container">
+    {% for tag in current_product.tags %}
+    <!-- {{tag}} -->
+    {% if tag=="bestseller" %}
+    <div class="tag best-seller">
+        Best Seller
+    </div>
+    {% endif %}    
+     {% if tag=="sale" %}
+     <div class="tag sale">
+        Sale
+    </div>
+     {% endif %}
+{% if tag=="free-shipping" %}
+<div class="tag free-shipping">
+    Free-Shipping
+</div>
+{% endif %}
+    {% endfor %}
+    
+</div>

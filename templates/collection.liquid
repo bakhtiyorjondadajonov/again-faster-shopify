@@ -1,0 +1,35 @@
+{{"style.plp.css" | asset_url | stylesheet_tag }}
+<h1 class="title title--plp">Bumper Plates</h1>
+<div class="bread-crumps">
+    {% for item in collections %}
+        
+    <div class="bread-crump">
+        <a href="{{item.url}}" class="bread-crump__link">{{item.title}}</a>
+        <span class="bread-crump__slash">/</span>
+    </div>
+    {% endfor %}
+</div>
+<main class="plp-container">
+  
+    {% for current_product in collection.products %}
+    <div class="product-card">
+     {% include "tags" with current_product %}
+     <div class="product-card__img">
+         <img src="{{current_product.featured_image.src | img_url:"master"}}" alt="">
+     </div>
+    <div class="product-card__content">
+        <div class="product-name">
+{{current_product.title}}
+        </div>
+        <ul class="list list--review">
+            <li class="item item--review"><img src="{{"star.png" | asset_url}}" alt=""></li>
+            <li class="item item--review"><img src="{{"star.png" | asset_url}}" alt=""></li>
+            <li class="item item--review"><img src="{{"star.png" | asset_url}}" alt=""></li>
+            <li class="item item--review"><img src="{{"star.png" | asset_url}}" alt=""></li>
+            <li class="item item--review"><img src="{{"star.png" | asset_url}}" alt=""></li>
+        </ul>
+        <div class="product-price">{{current_product.price | money_with_currency}}</div>
+    </div>  
+</div> 
+    {% endfor %}
+</main>

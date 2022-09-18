@@ -1,0 +1,75 @@
+.title--plp{
+    padding: 3rem;
+font-family: var(--main-font);
+font-size: 24px;
+font-weight: 600;
+line-height: 31px;
+letter-spacing: 0.08em;
+text-align: center;
+text-transform: uppercase;
+}
+.plp-container{
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    align-items: center;
+    justify-items: center;
+    padding: 4rem;
+}
+/* ----------- PRODUCT CARD STYLE ------------ */
+.product-card{
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+transition: all 0.2s;
+position: relative;
+}
+.product-card:hover{
+    transform: scale(1.02);
+    border: solid 1px black;
+}
+.product-card__img{
+width: 100%;
+
+}
+.product-card__content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.3rem;
+}
+.product-name,.product-price{
+    font-family: var(--secondary-font);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.16em;
+    text-align: left;
+    text-transform: uppercase;
+    
+}
+.list--review{
+display: flex;
+flex-direction: row;
+}
+.item--review{
+    width: 17px;
+    height: 17px;
+}
+.product-price{
+}
+.bread-crumps,.bread-crump{
+    display: flex;
+    gap: 0.5rem;
+    justify-content: center;
+}
+.bread-crump{
+    color:Grey;
+    font-family: var(--main-font);
+    font-size: 12px;
+    font-weight: 400;
+    line-height: 17px;
+    letter-spacing: 0.175em;
+    text-align: center;
+    text-transform: uppercase;
+}
