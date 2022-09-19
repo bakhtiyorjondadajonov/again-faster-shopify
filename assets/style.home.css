@@ -1,6 +1,11 @@
 
+.navigation>*{
+    color: white !important;
+   }
+.item--main-menu>*{
+    color: white !important;
 
-
+}
 /* ---------------- Header home ------------ */
 .header--home{
     height: 100vh;
@@ -17,39 +22,7 @@
     /* background-color:red; */
 }
 
-   /* ------------------- NAVIGATION -------------------- */
-   .navigation{
-    display: flex;
-    justify-content: space-between;
-    padding: 1.7rem 0;
-   }
-   .logo-box{
-    height: 20px;
-   }
-   .list{
-    display: flex !important;
-    list-style: none;
-   }
-   .list--main-menu{
-   
-    display: flex !important;
-font-family:var(--main-font);
-font-size: 12px;
-font-weight: 400;
-line-height: 17px;
-letter-spacing: 0.175em;
-text-align: left;
-text-transform: uppercase;
-gap: 4rem;
-}
-.list--search{
-   gap: 2.1rem;
-    
-}
-.item--main-menu>*{
-       color: var(--color-primary--light);
-text-decoration: none;
-   }
+ 
    /* ------------------ HEADER CONTENT----- */
    .header__content{
     display: flex;
