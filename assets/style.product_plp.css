@@ -1,5 +1,4 @@
 .header-pdp{
-    height: 120vh;
     display: grid;
     width: 100%;
     grid-template-columns: repeat(2,50%);
@@ -101,6 +100,7 @@ height: 16px;
 .variant-form{
 display: flex;
 flex-direction: column;
+gap: 2rem;
 
 }
 .variant-box{
@@ -128,14 +128,14 @@ padding-right: 1rem;
     background-color: rgba(169, 161, 161, 0.561);
   }
 .variant{
-padding: 1.6rem 4rem;
+
 font-family: var(--main-font);
 font-size: 14px;
 font-weight: 400;
 line-height: 23px;
 letter-spacing: 0em;
 text-align: center;
-border: solid 1px black;
+
 display: grid;
 justify-content: center;
 align-items: center;
@@ -144,7 +144,73 @@ text-transform: capitalize;
 .variant__input{
 display: none;
 }
+
 .variant__label{
     width: max-content;
-
+    padding: 1.6rem 4rem;
+    border: 1px solid #F1F1F1;
 }
+.variant__input:checked~.variant__label{
+    border: 2px solid black;
+    }
+    .shipping-info{
+        font-family: var(--main-font);
+font-size: 14px;
+font-style: italic;
+font-weight: 400;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: left;
+color: #979797;
+
+    }
+    .btn--add-to-cart{
+        width: 100%;
+        padding: 1.3rem;
+        text-transform: uppercase;
+        
+font-family:var(--main-font);
+font-size: 12px;
+font-weight: 400;
+line-height: 16px;
+letter-spacing: 0.175em;
+text-align: center;
+border: none;
+background-color: black;
+color: white;
+    }
+    .header__recommendation{
+        padding: 1.6rem 0;
+        display: flex;
+        flex-direction: column;
+        gap: 2rem;
+    }
+    .header__recommendation__container{
+        display: grid;
+        grid-template-columns: repeat(2,1fr);
+
+    }
+    .header__product-card{
+        display: flex;
+
+    }
+    .product-card__img{
+        width: 98px;
+        height: 125px;
+    }
+    .product-card__content{
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        justify-content: center;
+        padding: 2rem;
+
+font-family:var(--main-font);
+font-size: 14px;
+font-weight: 400;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: left;
+text-transform: capitalize;
+
+    }
