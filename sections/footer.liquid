@@ -7,8 +7,16 @@
    <button class="btn btn--contact-form"><img src="{{"arrow-long-black.png" | asset_url }}" alt=""></button>
 </form> 
 <ul class="list list--socials">
-    <li class="item item--socials"></li>
+    {% for block in section.blocks %}
+    {% if block.type=="slide" %}
+    <li class="item item--socials">
+        <img src="{{block.settings.social_icon.src | img_url: 'master'}}" alt="">
+    </li>
+    {%endif%}
+    {%endfor%}
+   
 </ul>
+
 </div>
 <div class="footer__navigation">
     {% for block in section.blocks %}
@@ -37,11 +45,13 @@
 
 
 
+
+
 {% schema %}
 {
     "name":"Footer",
     "blocks":[
-    {
+    { 
         "name":"Navigation List",
         "type":"link_list",
         "settings":[
@@ -57,7 +67,27 @@
 
         }
         ]
+    },
+    {
+        "name":"Socials",
+        "type":"slide",
+        "settings":[
+    {
+        "type":"url",
+        "id":"social_url",
+        "label":"Url"
+    },
+    {
+        "type":"image_picker",
+        "id":"social_icon",
+        "label":"Icon"  
     }
+    
     ]
+    }
+    
+    ]
+    
+    
 }
 {% endschema %}

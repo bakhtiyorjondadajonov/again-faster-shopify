@@ -1,0 +1,57 @@
+{{'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css' | url | stylesheet_tag }}
+{{'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js' | url | script_tag }}
+{{"script.carousel.js" | asset_url | script_tag }}
+{{"style.product_plp.css" | asset_url | stylesheet_tag }}
+{%include "navigation" %}
+<header class="header-pdp">
+<div class="gallery">
+    <div class="swiper swiper--pdp">
+        <div class="swiper-wrapper swiper-wrapper--pdp">
+            {% for product_image in product.images %}
+                
+            <div class="swiper-slide"><img src="{{product_image.src | img_url:"master"}}" alt=""></div>
+            {% endfor %}
+     
+        </div>
+        <div class="swiper-pagination"></div>
+      </div>
+
+</div>
+<div class="content">
+<h2 class="product__title">
+    {{product.title}}
+</h2>
+<div class="product__price">
+    {{product.price | money_with_currency}}
+</div>
+<div class="product__reviews">
+    <span>
+        {% include "reviews" %}
+    </span>
+    <span>18 reviews</span>
+
+</div>
+<div class="product__affirm">
+    <span class="affirm__img"><img src="{{"affirm.png" | asset_url }}" alt="affirm"></span>
+    <span class="affirm__content">
+        pay as low as 56/mo Learn More
+    </span>
+</div>
+<div class="product__description">
+    {{product.description}}
+</div>
+<form class="variant-form" action="">
+<div class="variant-box">
+    {% for variant in product.variants %}
+    <div class="variant">
+        <input class="variant__input" type="radio" name="variant" id="{{variant.id}}">
+    <label class="variant__label" for="{{variant.id}}">{{variant.title}}</label>
+    </div>
+        
+    {% endfor %}
+</div>
+
+
+</form>
+</div>
+</header>

@@ -1,0 +1,58 @@
+{{"style.plp.css" | asset_url | stylesheet_tag }}
+{%render "navigation"%}
+<h1 class="title title--plp">{{collection.title}}</h1>
+<div class="bread-crumps">    
+    {% for item in section.settings.my_collections %}
+        <div class="bread-crump ">
+            <a href="{{item.url}}" class="bread-crump__link {% if item.title == collection.title %} bread-crump--active {% endif %}">{{item.title}}</a>
+            <span class="bread-crump__slash">/</span>
+        </div>        
+    {% endfor %}   
+</div>
+<main class="plp-container">
+    {% if collection.products_count>0%}
+    {% for current_product in collection.products %}
+
+    <a href="{{current_product.url}}" class="product-card">
+        {%if current_product.available%}
+        {% include "tags" with current_product %}
+        {% else %}
+        <div class="sold-out-container">
+           <div class="sold-out-content">
+   Sold Out - Get notified when back in stock
+           </div>
+        </div>
+        {%endif%}
+       
+     <div class="product-card__img">
+         <img src="{{current_product.featured_image.src | img_url:"master"}}" alt="">
+     </div>
+    <div class="product-card__content">
+        <div class="product-name">
+{{current_product.title}}
+        </div>
+        {% include "reviews" %}
+        <div class="product-price">{{current_product.price | money_with_currency}}</div>
+    </div>  
+</a> 
+    {% endfor %}
+    {% else %}
+      <div class="empty-list">
+        This collection does not have any products yet
+      </div>
+    {% endif %}
+    
+</main>
+
+{% schema %}
+{
+  "name":" My_Collection",
+  "settings":[
+  {
+    "type":"collection_list",
+    "id":"my_collections",
+    "label":"my_collections"
+  }
+  ]
+}
+{% endschema %}
