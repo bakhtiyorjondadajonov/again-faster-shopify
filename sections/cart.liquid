@@ -1,0 +1,37 @@
+{{"style.cart.css" | asset_url | stylesheet_tag }}
+
+    <div class="cart">
+      <h3 class="title title--cart">
+        <span>My Cart</span>
+        <span class="close-btn">&times;</span>
+      </h3>
+      <div class="product-container">
+      
+        {% for item in cart.items %}
+        <div class="cart-product">
+            <div class="cart-product__img">
+                <img src="{{ item | img_url: 'medium' }}" alt="">
+            </div>
+            
+                <div class="cart-product__title">{{ item.product.title }}</div>
+                <div class="cart-product__variant">{{ item.product.variants[0].title }}</div>
+            <div class="cart-product__price">{{ item.price | money }}</div>
+            <button class="btn btn--remove">
+                &times;
+            </button>
+            <div class="cart-product__qty">
+                <div class="qty__minus"><svg width="8" height="1" viewBox="0 0 8 1" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M0 0H8V1H0V0Z" fill="currentColor"/>
+                    </svg></div>
+                <div class="qty__number">
+                    2
+                </div>
+                <div class="qty__plus"><svg width="8" height="8" viewBox="0 0 8 8" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M4.60125 0V3.44355H8V4.53226H4.60125V8H3.38205V4.53226H0V3.44355H3.38205V0H4.60125Z" fill="currentColor"/>
+                    </svg></div>
+            </div>
+
+        </div>
+        {% endfor %}
+      </div>
+    </div>

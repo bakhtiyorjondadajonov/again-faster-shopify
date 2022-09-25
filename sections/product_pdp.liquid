@@ -1,7 +1,10 @@
 {{'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.css' | url | stylesheet_tag }}
 {{'https://cdn.jsdelivr.net/npm/swiper/swiper-bundle.min.js' | url | script_tag }}
 {{"script.carousel.js" | asset_url | script_tag }}
-{{"style.product_plp.css" | asset_url | stylesheet_tag }}
+{{"script.pdp.js" | asset_url | script_tag }}
+{{"style.product_pdp.css" | asset_url | stylesheet_tag }}
+{% assign bannerContent = product.metafields.accentuate.section_content %}
+{% assign bannerImages = product.metafields.accentuate.section_banner %}
 {%include "navigation" %}
 <header class="header-pdp">
 <div class="gallery">
@@ -43,7 +46,7 @@
 <form class="variant-form" action="">
 <div class="variant-box">
     {% for variant in product.variants %}
-    <div class="variant">
+    <div data-variantId="{{variant.id}}" class="variant">
         <input class="variant__input" type="radio" name="variant" id="{{variant.id}}">
     <label class="variant__label" for="{{variant.id}}">{{variant.title}}</label>
     </div>
@@ -78,3 +81,33 @@
 </div>
 </div>
 </header>
+<main class="main-pdp">
+{% for item in (1..bannerContent.size) %}
+    <div class="section-container">
+<div class="content-section">
+{% if bannerContent[forloop.index0] !=blank %}
+    {{bannerContent[forloop.index0]}}
+{% endif %}
+
+</div>
+<div class="banner">
+  
+ {% if bannerImages[forloop.index0] !=blank %}
+ <img src="{{bannerImages[forloop.index0][0].src}}" alt="img">
+ {% endif %}   
+</div>
+    </div>
+{% endfor %}
+</main>
+<div class="also-like">
+<h3 class="also-like__title">
+    You might also like
+</h3>
+<div class="aslo-like__cards-container">
+    {% assign selected_handles = product.metafields.accentuate.recommendation | split: '|' %}
+ {% for my_product in selected_handles %}
+ {% assign collection_data = all_products[my_product] %}
+ {% include 'collection-card' with collection_data %}
+ {% endfor %}
+</div>
+</div>

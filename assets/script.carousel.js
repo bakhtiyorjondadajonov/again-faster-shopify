@@ -1,4 +1,4 @@
-console.log("Bismillah")
+
 window.addEventListener('load', function() {
   const featuredCollectionCarousel=document.querySelector(".swiper--home-collection");
   const pdpHeaderCarousel=document.querySelector(".swiper--pdp");

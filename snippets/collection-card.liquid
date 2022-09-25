@@ -1,7 +1,11 @@
 <!-- {%assign collection = collection_data%} -->
 <div class="collection-card">
     <div class="collection-card__img-box">
-        <img src="{{collection_data.image.src | img_url:"1920x"}}" alt="">
+        {% if collection_data.featured_image %}
+        <img src="{{collection_data.featured_image.src | img_url:"1920x"}}" alt="">
+        {% else %}
+        <img src="{{collection_data.image.src | img_url:"1920x"}}" alt="">              
+        {% endif %}
     </div>
     <a href="{{collection_data.url}}" class="collection-card__title">
         <span>{{collection_data.title}}</span>
