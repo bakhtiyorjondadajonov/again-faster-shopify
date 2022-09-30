@@ -1,5 +1,12 @@
 {{"style.cart.css" | asset_url | stylesheet_tag }}
-
+<style>
+    .affirm__img{
+        background-image:url('{{"affirm.png" | asset_url }}');
+        background-position: center;
+        background-size: contain;
+        background-repeat: no-repeat;
+    }
+</style>
     <div class="cart">
       <h3 class="title title--cart">
         <span>My Cart</span>
@@ -34,4 +41,14 @@
         </div>
         {% endfor %}
       </div>
+      
+   <form action="#" class="form-subtotal">
+        <h2 class="title--subtotal"><span>subtotal</span><span class="subtotal__price">0</span></h2>
+        <div class="subtotal__content">Tax and shipping calculates at checkout.</div>
+        <div class="affirm">
+    <div class="affirm__img"></div>
+    <div class="affirm__content">pay as low as 56/mo Learn More</div>
+</div>
+        <button class="btn btn--checkout">Checkout</button>
+      </form>
     </div>

@@ -34,21 +34,21 @@
     <span>18 reviews</span>
 
 </div>
-<div class="product__affirm">
-    <span class="affirm__img"><img src="{{"affirm.png" | asset_url }}" alt="affirm"></span>
-    <span class="affirm__content">
-        pay as low as 56/mo Learn More
-    </span>
-</div>
+{%include "affirm"%}
 <div class="product__description">
     {{product.description}}
 </div>
 <form class="variant-form" action="">
 <div class="variant-box">
     {% for variant in product.variants %}
+    
     <div data-variantId="{{variant.id}}" class="variant">
-        <input class="variant__input" type="radio" name="variant" id="{{variant.id}}">
-    <label class="variant__label" for="{{variant.id}}">{{variant.title}}</label>
+        <input {% if variant.available==false%}
+            disabled
+        {% endif %} class="variant__input" type="radio" name="variant" id="{{variant.id}}" value="{{variant.id}}">
+    <label {% if variant.available==false%}
+  style="opacity: 0.5; text-decoration: line-through;"
+{% endif %} class="variant__label" for="{{variant.id}}">{{variant.title}}</label>
     </div>
         
     {% endfor %}

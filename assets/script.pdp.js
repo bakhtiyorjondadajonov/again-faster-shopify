@@ -6,7 +6,7 @@ window.addEventListener("load",function(){
     const formData={
         items:[
             {
-                id:document.querySelector(".variant").getAttribute("data-variantId"),
+                id:document.querySelector('input[name="variant"]:checked').value,
                 quantity:1
             }
         ]
