@@ -3,6 +3,65 @@
 {{"script.carousel.js" | asset_url | script_tag }}
 {{"script.pdp.js" | asset_url | script_tag }}
 {{"style.product_pdp.css" | asset_url | stylesheet_tag }}
+<style>
+    .product-card{
+display: flex;
+flex-direction: column;
+gap: 1.5rem;
+transition: all 0.2s;
+position: relative;
+}
+.product-card:hover{
+    transform: scale(1.02);
+    border: solid 1px black;
+}
+.product-card__img{
+width: 100%;
+height:410px ;
+
+}
+.product-card__content{
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 0.3rem;
+  
+}
+.product-name,.product-price{
+    font-family: var(--secondary-font);
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 20px;
+    letter-spacing: 0.16em;
+    text-align: left;
+    text-transform: uppercase;
+    
+}
+.sold-out-container{
+    position: absolute;
+    top: 0;
+    left: 0;
+    background-color: rgba(210, 204, 204, 0.574);
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.sold-out-content{
+    width: 75%;
+padding: 0.5rem 1rem;
+
+font-family: var(--main-font);
+font-size: 12px;
+font-weight: 400;
+line-height: 20px;
+letter-spacing: 0em;
+text-align: center;
+background-color: white;
+
+}
+</style>
 {% assign bannerContent = product.metafields.accentuate.section_content %}
 {% assign bannerImages = product.metafields.accentuate.section_banner %}
 {%include "navigation" %}
@@ -41,10 +100,15 @@
 <form class="variant-form" action="">
 <div class="variant-box">
     {% for variant in product.variants %}
-    
+        
     <div data-variantId="{{variant.id}}" class="variant">
-        <input {% if variant.available==false%}
+        <input {% if variant.id==product.variants[0].id %}
+                checked="checked"
+        {% else %} {% if variant.available==false%}
             disabled
+            
+                
+            {% endif %}
         {% endif %} class="variant__input" type="radio" name="variant" id="{{variant.id}}" value="{{variant.id}}">
     <label {% if variant.available==false%}
   style="opacity: 0.5; text-decoration: line-through;"
@@ -106,8 +170,29 @@
 <div class="aslo-like__cards-container">
     {% assign selected_handles = product.metafields.accentuate.recommendation | split: '|' %}
  {% for my_product in selected_handles %}
- {% assign collection_data = all_products[my_product] %}
- {% include 'collection-card' with collection_data %}
+ {% assign current_product = all_products[my_product] %}
+ <a href="{{current_product.url}}" class="product-card">
+    {%if current_product.available==true%}
+    {% include "tags" with current_product %}
+    {% else %}
+    <div class="sold-out-container">
+       <div class="sold-out-content">
+Sold Out - Get notified when back in stock
+       </div>
+    </div>
+    {%endif%}
+   
+ <div class="product-card__img">
+     <img src="{{current_product.featured_image.src | img_url:"master"}}" alt="">
+ </div>
+<div class="product-card__content">
+    <div class="product-name">
+{{current_product.title}}
+    </div>
+    {% include "reviews" %}
+    <div class="product-price">{{current_product.price | money_with_currency}}</div>
+</div>  
+</a> 
  {% endfor %}
 </div>
 </div>

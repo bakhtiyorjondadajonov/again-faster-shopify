@@ -277,6 +277,10 @@ grid-column: 1/2 !important;
         
     }
     .aslo-like__cards-container{
-        display: grid;
-        grid-template-columns: repeat(4,1fr);
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 2rem;
+      align-items: center;
+      justify-items: center;
+      padding: 4rem;
     }
