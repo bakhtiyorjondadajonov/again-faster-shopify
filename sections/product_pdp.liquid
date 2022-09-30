@@ -136,7 +136,8 @@ background-color: white;
             <img src="{{all_products[my_product].featured_image.src| img_url: 'medium'}}" alt="" class="product-card__img">
             <div class="product-card__content">
                 <div class="product-card__name">{{all_products[my_product].title}}</div>
-                <div class="product-card_btn">add to cart</div>
+                <div data-variantid="{{all_products[my_product].variants[0].id}}" class="product-card_btn">add to cart</div>
+               
             </div>
         </div> 
         {% endfor %}

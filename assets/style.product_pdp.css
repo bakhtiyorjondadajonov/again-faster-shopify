@@ -192,13 +192,15 @@ color: white;
     .header__recommendation__container{
         display: grid;
         grid-template-columns: repeat(2,1fr);
+        
 
     }
     .header__product-card{
         display: flex;
+        gap: 1rem;
 
     }
-    .product-card__img{
+    .header__product-card .product-card__img{
         width: 98px;
         height: 125px;
     }
@@ -218,6 +220,13 @@ text-align: left;
 text-transform: capitalize;
 
     }
+    .product-card__content .product-card__name{
+      font-weight:600;
+    }
+    .product-card_btn{
+    border-bottom: solid 1px black;
+    padding-bottom: 0;
+    }
     /* -------------------------- BANNER IMAGES ----------------- */
     .main-pdp{
       display: flex;
@@ -234,6 +243,9 @@ text-transform: capitalize;
         
         align-items: center;
        
+    }
+    .section-container:first-of-type .banner img{
+margin-left: 6rem;
     }
     .content-section{
 color: white;

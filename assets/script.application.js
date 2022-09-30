@@ -22,7 +22,7 @@ productContainer.insertAdjacentHTML('afterbegin',html);
                         </div>
                         
                             <div class="cart-product__title">${ element.product_title }</div>
-                            <div class="cart-product__variant">${element.variant_title}</div>
+                            <div class="cart-product__variant">${element.variant_title?element.variant_title:""}</div>
                         <div class="cart-product__price">$${ element.final_line_price/100}.00</div>
                         <button data-key=${element.key} class="btn btn--remove">
                             &times;
