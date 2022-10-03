@@ -38,6 +38,11 @@ gap: 4rem;
        color: var(--color-primary);
 text-decoration: none;
    }
+   .customer-name{
+    font-family: var(--main-font);
+
+    font-size: 1.4rem;
+   }
 </style>
 <nav class="navigation">
   <div class="logo-box">
@@ -72,8 +77,7 @@ text-decoration: none;
   </ul>
   <ul class="list list--search">
     <li class="item  item--search">
-      <icon-search
-        >
+    
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_9058_2350)">
           <path d="M12 6.5C12 3.46243 9.53757 1 6.5 1C3.46243 1 1 3.46243 1 6.5C1 9.53757 3.46243 12 6.5 12C9.53757 12 12 9.53757 12 6.5Z" stroke="currentColor"/>
@@ -88,26 +92,40 @@ text-decoration: none;
           
           
     </li>
-    <li class="item item--search">
-      <icon-search
-        >
+    <li class="item item--search ">
+     {% if customer %}
+     <span class="customer-name">{{customer.first_name}}</span>
+      <a href="{{ routes.account_url }}">
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
-          <g clip-path="url(#clip0_9058_2347)">
-          <path d="M8 8C9.933 8 11.5 6.433 11.5 4.5C11.5 2.567 9.933 1 8 1C6.067 1 4.5 2.567 4.5 4.5C4.5 6.433 6.067 8 8 8Z" stroke="currentColor"/>
-          <path d="M15 17C15 13.134 11.866 10 8 10C4.13401 10 1 13.134 1 17" stroke="currentColor" stroke-linejoin="round"/>
-          </g>
-          <defs>
-          <clipPath id="clip0_9058_2347">
-          <rect width="16" height="16" fill="currentColor"/>
-          </clipPath>
-          </defs>
-          </svg>
-          
+        <g clip-path="url(#clip0_9058_2347)">
+        <path d="M8 8C9.933 8 11.5 6.433 11.5 4.5C11.5 2.567 9.933 1 8 1C6.067 1 4.5 2.567 4.5 4.5C4.5 6.433 6.067 8 8 8Z" stroke="currentColor"/>
+        <path d="M15 17C15 13.134 11.866 10 8 10C4.13401 10 1 13.134 1 17" stroke="currentColor" stroke-linejoin="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_9058_2347">
+        <rect width="16" height="16" fill="currentColor"/>
+        </clipPath>
+        </defs>
+        </svg>
+      </a>
+      {% else %}
+      <a href="{{ routes.account_login_url }}"><svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <g clip-path="url(#clip0_9058_2347)">
+        <path d="M8 8C9.933 8 11.5 6.433 11.5 4.5C11.5 2.567 9.933 1 8 1C6.067 1 4.5 2.567 4.5 4.5C4.5 6.433 6.067 8 8 8Z" stroke="currentColor"/>
+        <path d="M15 17C15 13.134 11.866 10 8 10C4.13401 10 1 13.134 1 17" stroke="currentColor" stroke-linejoin="round"/>
+        </g>
+        <defs>
+        <clipPath id="clip0_9058_2347">
+        <rect width="16" height="16" fill="currentColor"/>
+        </clipPath>
+        </defs>
+        </svg></a>
+     {% endif %}
+   
           
     </li>
     <li class="item item--cart item--search">
-      <icon-search
-        >
+      
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" xmlns="http://www.w3.org/2000/svg">
           <g clip-path="url(#clip0_9054_5170)">
           <path d="M5 5.5C5 5.0879 5 4.75154 5 4.4909C5 4.27749 5 3.95737 5 3.53055C5 1.85682 6.34315 0.5 8 0.5C9.65685 0.5 11 1.85682 11 3.53055C11 3.92499 11 4.22082 11 4.41804C11 4.68519 11 5.02996 11 5.45236" stroke="currentColor"/>

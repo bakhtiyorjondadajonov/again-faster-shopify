@@ -1,11 +1,19 @@
 {{"style.footer.css" | asset_url | stylesheet_tag }}
+<style>
+  .footer__contact{
+    background-image: url( '{{"F.png" | asset_url }}');
+    background-position: left;
+    background-size: contain;
+    background-repeat: no-repeat;
+  }  
+</style>
 <footer class="footer">
 <div class="footer__contact">
 <div class="newslatter">Newslatter</div> 
-<form action="#" class="contact-form">
-   <input class="contact-form__input" placeholder="Enter your email" type="email">
-   <button class="btn btn--contact-form"><img src="{{"arrow-long-black.png" | asset_url }}" alt=""></button>
-</form> 
+{%form "contact"%}
+<input class="contact-form__input" placeholder="Enter your email" type="email">
+<button class="btn btn--contact-form"><img src="{{"arrow-long-black.png" | asset_url }}" alt=""></button>
+{%endform%}
 <ul class="list list--socials">
     {% for block in section.blocks %}
     {% if block.type=="slide" %}

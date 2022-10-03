@@ -10,7 +10,7 @@
     <a href="{{section.settings.button_link}}" class="cta cta--primary cta--banner-secondary"><span>{{section.settings.button_text}}</span><span><img src="{{ "arrow-long.png" | asset_url }}" alt="" /></span></a>
   </div> 
   <div class="banner-secondary__img">
-    <img src="{{section.settings.banner_image.src | img_url: 'master'}}" alt="">
+    <img src="{{ section.settings.banner_image.src | img_url: 'master' }}" alt="">
   </div> 
 </section>
 {% schema %}

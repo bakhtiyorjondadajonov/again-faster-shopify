@@ -1,0 +1,67 @@
+{{"style.login.css" | asset_url | stylesheet_tag }}
+
+<style>
+  .hidden{
+    display: none !important;
+  }
+  .password{
+    position: relative;
+    margin-bottom: 5rem;
+  }
+  .forgot-password{
+    position: absolute;
+    top: 130%;
+    right: 0;
+   
+font-family: var(--main-font);
+font-size: 14px;
+font-weight: 400;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: center;
+
+    /* transform: translateX(-100%); */
+  }
+</style>
+<div class="container">
+  
+    <div class="form-container">
+        <h1 class="title title--form">LOG IN</h1>
+        {% form "customer_login",return_to:"/" %}
+        {{ form.errors | default_errors }}
+          <div class="email input-box">
+            <label for="email">Email</label>
+            <input  onblur="" type="email" name="customer[email]">
+          </div>
+          <div class="password input-box">
+            <label for="password">Password</label>
+            <input type="password" name="customer[password]">
+            <a href="#resetContainer" class="forgot-password">Forgot password?</a>
+          </div>
+          <div class="submit ">
+            <input type="submit" value="Login">
+          </div>
+        {% endform %}
+    <div class="form-container__content">
+       Don't have an account yet?
+    </div>
+    <a href="{{routes.account_register_url}}" class="btn btn--alternative">Create an account</a>
+    </div>
+    <div id="resetContainer" class="reset-container">
+      
+      <h1 class="title title--form">Reset password</h1>
+      <div class="reset__content">
+        Enter your email below to receive an email to reset your password.
+      </div>
+      {% form "recover_customer_password"%}
+      {{ form.errors | default_errors }}
+      <div class="email input-box">
+        <label for="email">Email</label>
+        <input type="email" name="email">
+      </div>
+      <div class="submit ">
+        <input type="submit" value="Reset password">
+      </div>
+      {% endform %}
+    </div>
+</div>

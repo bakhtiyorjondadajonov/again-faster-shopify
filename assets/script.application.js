@@ -65,20 +65,19 @@ productContainer.insertAdjacentHTML('afterbegin',html);
 }
 window.addEventListener("load",function(){
     const cartBtn=document.querySelector(".item--cart");
-    cartBtn.addEventListener("click",function(){
-        const cart=document.querySelector(".cart");
-        cart.classList.add("cart-opened");
-        
-        fetch("/cart.js").then(res=>res.json()).then(data=>{
-            console.log(data)
-            cartRenderingFn(data)
-        })
-    });
-
-
+   if(!cartBtn) return
+   cartBtn.addEventListener("click",function(){
+    const cart=document.querySelector(".cart");
+    cart.classList.add("cart-opened");
+    
+    fetch("/cart.js").then(res=>res.json()).then(data=>{
+        console.log(data)
+        cartRenderingFn(data)
+    })
 });
 
 
+});
 
 // ----------- CART CLOSE BTN --------------//
 
@@ -91,8 +90,6 @@ const cart=document.querySelector(".cart");
 cart.classList.remove("cart-opened");
 
 });
-
-
 
 // QUANTITY CHANGER
 window.addEventListener("click",function(e){
@@ -126,7 +123,7 @@ window.addEventListener("click",function(e){
     }
    quantityChanger(btnPlus);
    quantityChanger(btnMinus);
-   console.log(btnRemove)
+   
    if(btnRemove){
     
     fetch('/cart/change.js', {
@@ -145,4 +142,16 @@ window.addEventListener("click",function(e){
    }
 })
 
-//  ------------------ PRODUCT REMOVING --------
+    
+
+window.addEventListener('load',function(){
+    const forgotPSW=document.querySelector(".forgot-password")
+    if(forgotPSW){
+        forgotPSW.addEventListener("click",function(e){
+            e.preventDefault()
+            document.querySelector('.reset-container').scrollIntoView({
+                behavior:"smooth"
+            })
+        })
+    }
+})

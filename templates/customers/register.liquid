@@ -1,0 +1,41 @@
+{{"style.login.css" | asset_url | stylesheet_tag }}
+
+<div class="container">
+    <div class="form-container">
+        <h1 class="title title--form">Create an account</h1>
+        {% form "create_customer",return_to:"/" %}
+        {{ form.errors | default_errors }}
+        <div class="full-name">
+            <div class="first-name ">
+                <label for="first-name">First name</label>
+                <input required type="text" name="customer[first_name]">
+              </div>
+            
+              <div class="last-name ">
+                <label for="last-name">Last name</label>
+                <input required type="text" name="customer[last_name]">
+              </div>
+        </div>
+        
+          <div class="email input-box">
+            <label for="email">Email</label>
+            <input type="email" name="customer[email]" required>
+          </div>
+          <div class="password input-box">
+            <label for="password"> Password</label >
+            <input type="password" name="customer[password]" required minlength="8">
+          </div>
+          <div class="password_confirmation input-box">
+            <label for="password_confirmation">Confirm Password</label >
+            <input type="password" name="customer[password_confirmation]">
+          </div>
+          <div class="submit ">
+            <input type="submit" value="Create an account">
+          </div>
+        {% endform %}
+    <div class="form-container__content">
+        Already have an account?
+    </div>
+    <a href="{{routes.account_login_url}}" class="btn btn--alternative">Log in</a>
+    </div>
+</div>
