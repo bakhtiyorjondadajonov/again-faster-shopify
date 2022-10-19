@@ -1,9 +1,20 @@
+.advertisement{
+    display: none !important;
+}
+footer{
+    display: none !important;
+}
 .container{
 width: 100vw;
 min-height: 100vh;
 }
+.reset-container{
+    
+    height: 100vh;
+}
 .form-container,.reset-container{
 width: 30vw;
+
 margin: 5rem auto;
 display: flex;
 justify-content: center;

@@ -1,10 +1,29 @@
 <style>
     .container{
-        height: 50vh;
+        height: 70vh;
         width: 100%;
         display: flex;
-        justify-content: center;
+        flex-direction: column;
+        justify-content: space-around;
         align-items: center;
+        font-family: var(--main-font);
+
+    }
+    .container h1{
+      
+        font-size: 5rem;
+    }
+    .container h2{
+        font-size: 3rem;
+        transition: all 0.2s;
+        padding: 1rem 3rem;
+    }
+    .container h2:hover{
+
+background: rgba(218, 0, 0, 0.1);
+    border: 1px solid #DA0000;
+    color: #DA0000;
+    
     }
     a{
         width: max-content;
@@ -14,7 +33,9 @@
         width: max-content;
     }
 </style>
+{%include "navigation" %}
 <div class="container">
-    <a href="{{routes.account_logout_url}}"><h1>Log out</h1></a>
+    <h1>Hi {{customer.first_name}}!👋</h1>
+    <a href="{{routes.account_logout_url}}"><h2>Log out</h2></a>
 
 </div>

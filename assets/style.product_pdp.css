@@ -9,6 +9,75 @@
     width: 100%;
 
 }
+/* ---------------- SUBSCRIPTION PAGE ---------- */
+.form-subscription{
+display: flex;
+flex-direction: column;
+align-items: start;
+padding:1rem;
+gap: 1rem;
+
+}
+.one-time-purchase{
+
+
+}
+.monthly-subscription label,.one-time-purchase label{
+    display: flex;
+    flex-direction: column;
+    width: 20rem;
+    height: max-content;
+font-family: var(--main-font);
+font-size: 14px;
+font-weight: 400;
+line-height: 23px;
+letter-spacing: 0em;
+text-align: center;
+border: 1px solid black;
+padding: 1rem 1.5rem;
+
+}
+.monthly-subscription input:checked~label,.one-time-purchase input:checked~label{
+background-color: rgb(32, 111, 237);
+color: white;
+}
+.subscription-price{
+    font-size: 20px;
+    font-weight: 600;
+}
+.one-time-purchase input{
+    display: none;
+}
+.monthly-subscription input{
+display: none;
+}
+.monthly-subscription{
+
+}
+
+
+.label-subscription{
+
+}
+.subscription-input{
+
+}
+.monthly-subscription{
+display: flex;
+gap: 1rem;
+}
+.selling-plan__container{
+    
+    margin-top: 1rem;
+    flex-direction: column !important;
+    gap: 1rem;
+    display: none;
+   
+}
+.subscription-input:checked~.selling-plan__container{
+    display: flex !important;
+   
+}
 
 .swiper--pdp {
     width: 100%;
@@ -226,6 +295,7 @@ text-transform: capitalize;
     .product-card_btn{
     border-bottom: solid 1px black;
     padding-bottom: 0;
+    cursor: pointer;
     }
     /* -------------------------- BANNER IMAGES ----------------- */
     .main-pdp{
@@ -233,6 +303,30 @@ text-transform: capitalize;
         flex-direction: column;
         padding: 5rem 2rem;
         background-color: black;
+        position: relative;
+    }
+    .line{
+        position: absolute;
+        width: 0.5px;
+        height: 100%;
+        top: 0;
+        background-color: #C4C4C4;
+        opacity: 0.3;
+    }
+    .line-1{
+       
+        left: 25%;
+        
+    }
+    .line-2{
+       
+        left: 50%;
+        
+    }
+    .line-3{
+       
+        left: 75%;
+        
     }
     .section-container{
         height: 80vh;
@@ -246,6 +340,29 @@ text-transform: capitalize;
     }
     .section-container:first-of-type .banner img{
 margin-left: 6rem;
+    }
+.section-container:first-of-type .banner{
+
+
+
+position: relative;
+    }
+    .section-container:first-of-type .banner::before{
+        width: 550px !important;
+        height: 550px !important;
+    }
+    .section-container:first-of-type .banner::before,.section-container:first-of-type .banner::after{
+        content: "";
+        position: absolute;
+        width: 600px;
+        height: 600px;
+        top: 50%;
+        left: 50%;
+        transform: translateX(-50%) translateY(-50%);
+        border: 0.5px solid #C4C4C4;
+        opacity: 0.3;
+        border-radius: 100%;
+        margin: 0 auto;
     }
     .content-section{
 color: white;
@@ -267,6 +384,24 @@ grid-column: 1/2 !important;
         grid-row: 1/2 !important;
         justify-self: end !important;
       
+    }
+    .section-container:nth-of-type(2n) .content-section ul{
+        margin-top: 3rem;
+        display: flex;
+        flex-direction: column;
+        gap: 3rem;
+    }
+    .section-container:nth-of-type(2n) .content-section ul li{
+        position: relative;
+        font-weight: 400 !important;
+    }
+    .section-container:nth-of-type(2n) .content-section ul li:before{
+        content: "/";
+        left: -2rem;
+        font-size: larger;
+        font-weight: 700;
+        color: #C2A578;
+        position: absolute;
     }
     .section-container:nth-of-type(2n) .banner{
         grid-column: 1/2 !important;

@@ -11,6 +11,9 @@ a{
     text-decoration: none;
     color: inherit;
 }
+.kl-private-reset-css-inner-Zxasda, .kl-private-reset-css-Xuajs1 input :not([type=image]) ::placeholder, .kl-private-reset-css-Xuajs1 ::before, .kl-private-reset-css-Xuajs1 ::after, .kl-private-reset-css-Xuajs1 input:not([type]), .kl-private-reset-css-Xuajs1 input[type=text], .kl-private-reset-css-Xuajs1 input[type=email], .kl-private-reset-css-Xuajs1 input[type=number], .kl-private-reset-css-Xuajs1 input[type=date], .kl-private-reset-css-Xuajs1 input[type=tel], .kl-private-reset-css-Xuajs1 p{
+    width: 350px !important;
+}
 img{
     width: 100%;
     height: 100%;

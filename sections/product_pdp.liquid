@@ -92,43 +92,74 @@ background-color: white;
     {{product.price | money_with_currency}}
 </div>
 <div class="product__reviews">
-    <span>
-        {% include "reviews" %}
-    </span>
-    <span>18 reviews</span>
+    <script src='{{"https://cdn-widgetsrepository.yotpo.com/v1/loader/DlT8i3Zg5stPTHfUR2dnsMIKSQLCMaJUhpBk9vnv"|url}}' async></script>
+    <div class="yotpo-widget-instance" data-yotpo-instance-id="250665" data-yotpo-product-id="{{product.id}}"></div>
+   
 
 </div>
 {%include "affirm"%}
 <div class="product__description">
     {{product.description}}
 </div>
-<form class="variant-form" action="">
-<div class="variant-box">
-    {% for variant in product.variants %}
-        
-    <div data-variantId="{{variant.id}}" class="variant">
-        <input {% if variant.id==product.variants[0].id %}
-                checked="checked"
-        {% else %} {% if variant.available==false%}
-            disabled
-            
+
+    <form class="variant-form" action="">
+    
+        <div class="variant-box">
+            {% for variant in product.variants %}
                 
-            {% endif %}
-        {% endif %} class="variant__input" type="radio" name="variant" id="{{variant.id}}" value="{{variant.id}}">
-    <label {% if variant.available==false%}
-  style="opacity: 0.5; text-decoration: line-through;"
-{% endif %} class="variant__label" for="{{variant.id}}">{{variant.title}}</label>
-    </div>
-        
-    {% endfor %}
+            <div data-variantId="{{variant.id}}" class="variant">
+                <input  {% if variant.id==product.variants[0].id %}
+                        checked="checked"
+                {% else %} {% if variant.available==false%}
+                    disabled
+                    
+                        
+                    {% endif %}
+                {% endif %} class="variant__input" type="radio" name="variant" id="{{variant.id}}" value="{{variant.id}}">
+            <label  data-variant-price="{{variant.price}}" {% if variant.available==false%}
+          style="opacity: 0.5; text-decoration: line-through;"
+        {% endif %} class="variant__label" for="{{variant.id}}">{{variant.title}}</label>
+            </div>
+                
+            {% endfor %}
+        </div>
+        {% if product.selling_plan_groups.size>0 %}
+   
+    <div class="form-subscription">
+        <div class="one-time-purchase">
+            <input checked value="{{product.variants[0].id}}"  type="radio" id="one-time-purchase__id" name="selling-plan__option" class="one-time-purchase-input">
+<label class="label-subscription" for="one-time-purchase__id"><span>One-Time Purchase</span>
+<span class="subscription-price">${{product.price|divided_by:100}}.00</span></label>
+        </div>
+        <div data-discount="{{product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value}}" class="monthly-subscription">
+            {% assign discount = product.price|divided_by:100|times:product.selling_plan_groups[0].selling_plans[0].price_adjustments[0].value|divided_by:100%}
+            <input type="radio" value="monthly" name="selling-plan__option" id="subscription" class="subscription-input">
+            <label class="label-subscription" for="subscription"><span>Subscription</span> <span class="subscription-price">${{product.price|divided_by:100 |minus:discount}}.00</span></label>
+            <div class="selling-plan__container ">
+                {% for selling-plan in product.selling_plan_groups[0].selling_plans %}
+                <div class="selling-plan__option">
+<input type="radio" {% if forloop.first %}
+    checked
+{% endif %} name="subscription-period" id="option-{{selling-plan.id}}" value="{{selling-plan.id}}">
+<label class="label-subscription" for="option-{{selling-plan.id}}">{{selling-plan.name}}</label>
 </div>
-{% for tag in product.tags %}
-    {% if tag=="free-shipping" %}
-    <div class="shipping-info">Available for Free shipping!</div>
-    {% endif %}
 {% endfor %}
-<button class="btn btn--add-to-cart">Add to cart</button>
-</form>
+            </div>
+        </div>
+        
+     
+    </div>
+   {% endif %}
+        {% for tag in product.tags %}
+            {% if tag=="free-shipping" %}
+            <div class="shipping-info">Available for Free shipping!</div>
+            {% endif %}
+        {% endfor %}
+        <button class="btn btn--add-to-cart">Add to cart</button>
+        </form>   
+
+
+
 <div class="header__recommendation">
     <h2 class="title title--header__recommendation">
         Frequently bought with
@@ -152,6 +183,9 @@ background-color: white;
 </div>
 </header>
 <main class="main-pdp">
+    <span class="line line-1"></span>
+    <span class="line line-2"></span>
+    <span class="line line-3"></span>
 {% for item in (1..bannerContent.size) %}
     <div class="section-container">
 <div class="content-section">
@@ -202,3 +236,7 @@ Sold Out - Get notified when back in stock
  {% endfor %}
 </div>
 </div>
+<script>
+console.log({{product | json}})
+
+</script>
